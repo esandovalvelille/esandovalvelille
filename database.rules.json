@@ -1,0 +1,43 @@
+{
+  "rules": {
+    "publishedPosts": {
+      ".read": true,
+      "$postId": {
+        ".write": "auth != null && auth.uid === 'XLC0hANEMpRewmMyxP0eTw8LGdl1'",
+        ".validate": "newData.hasChildren(['title', 'category', 'section', 'summary', 'content', 'mediaUrl', 'mediaPath', 'mediaType', 'featured', 'updatedAt', 'publishedAt'])",
+        "title": { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 110" },
+        "category": { ".validate": "newData.isString() && newData.val().length <= 60" },
+        "section": { ".validate": "newData.val() === 'journal' || newData.val() === 'accounting' || newData.val() === 'technology' || newData.val() === 'reflections'" },
+        "summary": { ".validate": "newData.isString() && newData.val().length <= 180" },
+        "content": { ".validate": "newData.isString() && newData.val().length <= 30000" },
+        "mediaUrl": { ".validate": "newData.isString()" },
+        "mediaPath": { ".validate": "newData.isString()" },
+        "mediaType": { ".validate": "newData.isString()" },
+        "featured": { ".validate": "newData.isBoolean()" },
+        "updatedAt": { ".validate": "newData.isNumber()" },
+        "publishedAt": { ".validate": "newData.isNumber()" },
+        "$other": { ".validate": false }
+      }
+    },
+    "drafts": {
+      ".read": "auth != null && auth.uid === 'XLC0hANEMpRewmMyxP0eTw8LGdl1'",
+      "$draftId": {
+        ".write": "auth != null && auth.uid === 'XLC0hANEMpRewmMyxP0eTw8LGdl1'",
+        ".validate": "newData.hasChildren(['title', 'category', 'section', 'summary', 'content', 'mediaUrl', 'mediaPath', 'mediaType', 'featured', 'updatedAt', 'publishedAt'])"
+      }
+    },
+    "postComments": {
+      ".read": true,
+      "$postId": {
+        "$commentId": {
+          ".write": "( !data.exists() && root.child('publishedPosts').child($postId).exists() ) || (auth != null && auth.uid === 'XLC0hANEMpRewmMyxP0eTw8LGdl1')",
+          ".validate": "newData.hasChildren(['author', 'content', 'timestamp'])",
+          "author": { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 40" },
+          "content": { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 1000" },
+          "timestamp": { ".validate": "newData.isNumber()" },
+          "$other": { ".validate": false }
+        }
+      }
+    }
+  }
+}

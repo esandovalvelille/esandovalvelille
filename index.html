@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3ed">
+  <meta name="description" content="El espacio personal de Eduardo Sandoval: ideas, proyectos y aprendizajes.">
+  <title>ESVA — Un espacio personal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="#inicio" aria-label="ESVA, inicio"><span class="wordmark-mark">E</span><span>ESVA<span class="wordmark-period">.</span></span></a>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="#publicaciones">Publicaciones</a><a href="#temas">Temas</a><a href="#sobre-mi">Sobre mí</a>
+    </nav>
+    <div class="header-actions"><a class="contact-link" href="mailto:eduardosandovalvelille@gmail.com">Hablemos <span aria-hidden="true">↗</span></a><button class="icon-button menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button></div>
+  </header>
+
+  <main>
+    <section class="intro section-wrap" id="inicio">
+      <div class="intro-copy"><p class="eyebrow"><span class="status-dot"></span> CUADERNO ABIERTO · LIMA, PERÚ</p>
+        <h1>Ideas, proyectos<br>y cosas que <em>aprendo.</em></h1>
+        <p class="intro-lead">Un espacio personal para compartir lo que voy descubriendo sobre contabilidad, tecnología y la vida.</p>
+        <a class="text-link" href="#publicaciones">Leer las publicaciones <span aria-hidden="true">↓</span></a>
+      </div>
+      <aside class="intro-note"><span class="note-index">01 / BIENVENIDA</span><p>Este sitio crece conmigo. Aquí guardo notas, proyectos y reflexiones que merecen salir del borrador.</p><span class="note-signature">Eduardo Sandoval</span></aside>
+      <div class="intro-stamp" aria-hidden="true">ES<br><span>·</span></div>
+    </section>
+
+    <section class="featured-section section-wrap" aria-labelledby="featuredHeading">
+      <div class="section-kicker"><span>SELECCIÓN PERSONAL</span><span class="kicker-line"></span><span id="featuredCount">—</span></div>
+      <div id="featuredPost" class="featured-card"><div class="featured-placeholder"><span class="placeholder-mark">ES.</span><p>Las historias empiezan con una primera publicación.</p></div></div>
+    </section>
+
+    <section class="journal section-wrap" id="publicaciones">
+      <div class="section-heading"><div><p class="eyebrow">EL CUADERNO</p><h2 id="featuredHeading">Publicaciones<span class="heading-period">.</span></h2></div><p class="heading-aside">Apuntes, procesos y hallazgos<br>sin un orden demasiado rígido.</p></div>
+      <div class="journal-controls"><div class="filter-list" id="categoryFilters" aria-label="Filtrar publicaciones"></div><label class="search-field"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Buscar una idea…" aria-label="Buscar publicaciones"></label></div>
+      <div class="posts-grid" id="postsGrid" aria-live="polite"></div>
+      <p class="empty-state" id="emptyState" hidden>Aún no hay publicaciones aquí. Vuelve pronto.</p>
+    </section>
+
+    <section class="topics section-wrap" id="temas">
+      <div class="topics-heading"><p class="eyebrow">POR DÓNDE EMPEZAR</p><h2>Algunos temas<br>que me mueven<span class="heading-period">.</span></h2></div>
+      <div class="topic-list"><a href="#publicaciones" data-topic="Contabilidad"><span>01</span><strong>Contabilidad & operaciones</strong><span class="topic-arrow">↗</span></a><a href="#publicaciones" data-topic="Tecnología"><span>02</span><strong>Tecnología & desarrollo</strong><span class="topic-arrow">↗</span></a><a href="#publicaciones" data-topic="Reflexiones"><span>03</span><strong>Reflexiones & vida</strong><span class="topic-arrow">↗</span></a></div>
+    </section>
+
+    <section class="about-band" id="sobre-mi"><div class="section-wrap about-inner"><p class="eyebrow">UN POCO SOBRE MÍ</p><h2>Aprender haciendo,<br>compartir en el camino.</h2><div class="about-bottom"><p>Soy Eduardo. Estudio Contabilidad y me interesa cómo las ideas se convierten en herramientas útiles, proyectos y conversaciones.</p><a class="text-link" href="mailto:eduardosandovalvelille@gmail.com">Escríbeme <span aria-hidden="true">↗</span></a></div></div></section>
+  </main>
+
+  <footer class="site-footer section-wrap"><a class="wordmark" href="#inicio"><span class="wordmark-mark">E</span><span>ESVA<span class="wordmark-period">.</span></span></a><p>Hecho con intención, en Lima. © <span id="currentYear"></span></p><button class="moderator-entry" id="moderatorEntry" type="button">Acceso editorial</button></footer>
+
+  <dialog class="dialog reader-dialog" id="readerDialog" aria-labelledby="readerTitle"><button class="dialog-close" data-close="readerDialog" aria-label="Cerrar">×</button><article id="readerContent"></article><section class="comments-section"><div class="section-kicker"><span>CONVERSACIÓN</span><span class="kicker-line"></span></div><p class="comments-intro">¿Qué te dejó esta publicación? Comparte tu idea con respeto.</p><form id="commentForm" class="comment-form"><label>Tu nombre o apodo<input name="author" maxlength="40" required placeholder="¿Cómo te llamamos?"></label><label>Tu comentario<textarea name="content" maxlength="1000" rows="4" required placeholder="Escribe aquí…"></textarea></label><button class="button button-dark" type="submit">Publicar comentario <span>↗</span></button><p class="form-message" id="commentMessage" role="status"></p></form><div id="commentsList" class="comments-list"></div></section></dialog>
+
+  <dialog class="dialog login-dialog" id="loginDialog" aria-labelledby="loginTitle"><button class="dialog-close" data-close="loginDialog" aria-label="Cerrar">×</button><p class="eyebrow">ESPACIO PRIVADO</p><h2 id="loginTitle">Acceso editorial<span class="heading-period">.</span></h2><p class="dialog-description">Ingresa con la cuenta de moderación configurada en Firebase.</p><form id="loginForm"><label>Usuario<input name="username" autocomplete="username" value="ESVA" required></label><label>Contraseña<input name="password" type="password" autocomplete="current-password" required></label><button class="button button-dark" type="submit">Entrar al panel <span>↗</span></button><p class="form-message" id="loginMessage" role="status"></p></form></dialog>
+
+  <dialog class="dialog editor-dialog" id="editorDialog" aria-labelledby="editorTitle"><button class="dialog-close" data-close="editorDialog" aria-label="Cerrar">×</button><div class="editor-header"><div><p class="eyebrow">TU ESPACIO DE TRABAJO</p><h2 id="editorTitle">Estudio editorial<span class="heading-period">.</span></h2></div><button class="button button-outline" id="signOutButton" type="button">Cerrar sesión</button></div><div class="editor-layout"><aside class="editor-sidebar"><button class="editor-tab active" data-tab="writeTab">Nueva publicación <span>＋</span></button><button class="editor-tab" data-tab="manageTab">Publicaciones <span id="manageCount">0</span></button><p class="editor-hint">Los cambios se guardan en Firebase. Las imágenes se optimizan como WebP; los videos conservan su formato.</p></aside><section class="editor-main"><div class="editor-pane active" id="writeTab"><form id="postForm"><input type="hidden" name="postId"><label>Título<input name="title" maxlength="110" required placeholder="Una idea que vale la pena contar"></label><div class="form-pair"><label>Tema<select name="category"><option>Reflexiones</option><option>Contabilidad</option><option>Tecnología</option><option>Vida</option></select></label><label>Ubicación<select name="section"><option value="journal">Publicaciones</option><option value="accounting">Contabilidad & operaciones</option><option value="technology">Tecnología & desarrollo</option><option value="reflections">Reflexiones & vida</option></select></label></div><label>Resumen<input name="summary" maxlength="180" required placeholder="Una frase para invitar a leer"></label><label>Texto<textarea name="content" rows="9" required placeholder="Escribe tu publicación. Separa los párrafos con una línea en blanco."></textarea></label><div class="media-picker"><label for="mediaFile">Imagen o video <span>Opcional · imagen hasta 12 MB · video hasta 200 MB</span></label><input id="mediaFile" type="file" accept="image/jpeg,image/png,image/webp,image/avif,video/mp4,video/webm"><div class="media-preview" id="mediaPreview"><span>Elige una imagen o un video para la portada</span></div><label class="url-label">O usa una URL de medios<input name="mediaUrl" type="url" placeholder="https://…"></label></div><label class="checkbox-label"><input name="featured" type="checkbox"> Destacar en la portada</label><div class="editor-actions"><button class="button button-dark" type="submit" id="savePostButton">Publicar <span>↗</span></button><button class="button button-outline" id="saveDraftButton" type="button">Guardar borrador</button><button class="button button-quiet" id="cancelEditButton" type="button" hidden>Cancelar edición</button></div><progress id="uploadProgress" max="100" value="0" hidden></progress><p class="form-message" id="editorMessage" role="status"></p></form></div><div class="editor-pane" id="manageTab"><div id="managedPosts" class="managed-posts"></div><p class="empty-state" id="managedEmpty">Todavía no hay publicaciones.</p></div></section></div></dialog>
+
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
